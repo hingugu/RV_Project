@@ -4,6 +4,7 @@
 #include <unistd.h>     // close()
 #include <sys/ioctl.h>  // ioctl()
 #include <linux/videodev2.h> // V4L2 핵심 헤더
+// test comment
 
 #define CAMERA_DEV "/dev/video0" // 첫 번째 카메라 장치
 
