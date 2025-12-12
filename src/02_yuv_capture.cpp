@@ -40,6 +40,7 @@ int main() {
         close(fd);
         return 1;
     }
+    
     cout << "포맷 설정 완료: " << WIDTH << "x" << HEIGHT << " YUV420" << endl;
 
     // 3. 버퍼 요청 (메모리 맵핑용)
@@ -100,7 +101,7 @@ int main() {
 
     int file_fd = open("../yuv/output_video.yuv", O_WRONLY | O_CREAT | O_TRUNC, 0666);
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 1; i <= 100; i++) {
         // 1. 꺼내오기
         if (ioctl(fd, VIDIOC_DQBUF, &buf) == -1) {
             cerr << "프레임 에러" << endl;
