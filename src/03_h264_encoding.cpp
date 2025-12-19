@@ -25,7 +25,7 @@ bool is_mplane(uint32_t type) {
         type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
 }
 
-// 포맷 설정 함수 (Single & Multi Plane 모두 지원하도록 수정됨)
+// 포맷 설정 함수 (Single & Multi Plane 모두 지원하도록 수정)
 int set_format(int fd, uint32_t type, uint32_t pixelformat, int w, int h) {
     struct v4l2_format fmt;
     memset(&fmt, 0, sizeof(fmt));
@@ -39,7 +39,7 @@ int set_format(int fd, uint32_t type, uint32_t pixelformat, int w, int h) {
         fmt.fmt.pix_mp.num_planes = 1;
         fmt.fmt.pix_mp.field = V4L2_FIELD_NONE;
 
-        // H.264 출력 버퍼 크기 지정 (넉넉하게 512KB)
+        // H.264 출력 버퍼 크기 지정
         if (pixelformat == V4L2_PIX_FMT_H264) {
             fmt.fmt.pix_mp.plane_fmt[0].sizeimage = 512 * 1024;
         }
